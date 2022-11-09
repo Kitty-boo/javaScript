@@ -1,9 +1,9 @@
 
-let nombre = prompt ("Bienvenido a NEFREDOS la escuela de ilustación y diseño, por favor escribe tu nombre")
+const nombre = prompt ("Bienvenido a NEFREDOS la escuela de ilustación y diseño, por favor escribe tu nombre")
     alert(`Bienvenido a NEFREDOS ${nombre}`);
 
 
-let comision = parseInt(prompt(
+const comision = parseInt(prompt(
   "elije la comisión que deseas adquirir: 1.comisión borrador lapiz - 2.comisión entintado sencillo - 3.comisión digital con color")
 );
 
@@ -11,13 +11,29 @@ let seguirComprando = true;
 let totalDeCompra = 0;
 let decision;
 
+const totalArray = [];
+
+function Comision (id, nombre, precio, stock) {
+  this.id = id;
+  this.nombre = nombre;
+  this.precio = precio;
+}
+
+const comision1 = new Comision(1,"comisión borrador lapiz", 900)
+totalArray.push("comisión borrador lapiz")
+const comision2 = new Comision(2,"comisión entintado sencillo", 1500)
+totalArray.push("comisión entintado sencillo")
+const comision3 = new Comision(3,"comisión digital con color", 2000)
+totalArray.push("comisión digital con color")
+
+
 while(seguirComprando===true){
-  if(comision===1){
-    totalDeCompra = totalDeCompra + 600;
-  } else if(comision===2){
-    totalDeCompra = totalDeCompra + 900;
-  } else if(comision===3){
-    totalDeCompra = totalDeCompra + 2000;
+  if(comision===comision1.id){
+    totalDeCompra = totalDeCompra + comision1.precio;
+  } else if(comision===comision2.id){
+    totalDeCompra = totalDeCompra + comision2.precio;
+  } else if(comision===comision3.id){
+    totalDeCompra = totalDeCompra + comision3.precio;
   }
 
   decision = parseInt(prompt("¿Quieres seguir comprando? 1.Si - 2.No"));
@@ -52,3 +68,5 @@ function descuento(valor){
     let valorFinal = valor - valorDescuento 
     return valorFinal
 }
+
+
